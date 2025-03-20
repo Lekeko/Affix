@@ -1,0 +1,9 @@
+{
+  "stages": [
+    {
+      "type": "veil:blit",
+      "shader": "affix:mirror",
+      "in": "minecraft:main"
+    }
+  ]
+}

@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"com.keko.AffixDataGenerator"
+		],
+		"client": [
+			"com.keko.AffixClient"
 		]
 	},
 	"mixins": [
@@ -27,7 +30,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.21.4",
+		"minecraft": "~1.21.1",
 		"java": ">=21",
 		"fabric-api": "*"
 	},
