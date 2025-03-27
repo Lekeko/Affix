@@ -17,7 +17,7 @@ public class CancelItemRendererMixin {
 
     @Inject(method = "renderItem", at=@At("HEAD"), cancellable = true)
     private void noCube(LivingEntity livingEntity, ItemStack itemStack, ItemDisplayContext itemDisplayContext, boolean bl, PoseStack poseStack, MultiBufferSource multiBufferSource, int g, CallbackInfo ci){
-        if (itemStack.is(ModItems.HEAVY_MIRROR)) {
+        if (itemStack.is(ModItems.HEAVY_MIRROR) && livingEntity.isUsingItem()) {
             ci.cancel();
         };
     }

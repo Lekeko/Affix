@@ -19,7 +19,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-        itemModelGenerators.generateFlatItem(ModItems.HEAVY_MIRROR, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.HEAVY_MIRROR, ModelTemplates.FLAT_HANDHELD_ITEM);
     }
 
 }

@@ -1,0 +1,29 @@
+{
+    "max_lifetime": 50,
+    "loop": false,
+    "rate": 1,
+    "count": 11,
+    "emitter_settings": {
+      "shape": "affix:star",
+      "particle_settings": {
+        "random_speed": false,
+        "random_size": false,
+        "random_lifetime": false,
+        "initial_direction": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "random_initial_direction": true,
+        "random_initial_rotation": true,
+        "particle_size_variation": 0.0075,
+        "particle_lifetime": 10,
+        "particle_lifetime_variation": 0,
+        "particle_speed": 0.09,
+        "base_particle_size": 0.2
+      },
+      "force_spawn": true
+
+    },
+    "particle_data": "affix:star"
+  }

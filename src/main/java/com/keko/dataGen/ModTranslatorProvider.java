@@ -1,5 +1,6 @@
 package com.keko.dataGen;
 
+import com.keko.entity.ModEntities;
 import com.keko.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -15,6 +16,7 @@ public class ModTranslatorProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(HolderLookup.Provider provider, TranslationBuilder translationBuilder) {
         translationBuilder.add(ModItems.HEAVY_MIRROR, "Heavy Mirror");
+        translationBuilder.add(ModEntities.FABRIC_POCKET_ENTITY_TYPE, "|Fabric Pocket|");
 
     }
 }
