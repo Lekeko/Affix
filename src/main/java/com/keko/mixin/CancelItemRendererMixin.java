@@ -20,6 +20,9 @@ public class CancelItemRendererMixin {
         if (itemStack.is(ModItems.HEAVY_MIRROR) && livingEntity.isUsingItem()) {
             ci.cancel();
         };
+        if (itemStack.is(ModItems.REFRACTOR) && livingEntity.isAutoSpinAttack()) {
+            ci.cancel();
+        };
     }
 
 }

@@ -1,0 +1,28 @@
+{
+  "warp_break": {
+    "sounds": [
+      "affix:warp_break"
+    ]
+  },
+  "refractor_phase": {
+    "sounds": [
+      "affix:refractor_phase"
+    ]
+  },
+  "accelerator": {
+    "sounds": [
+      "affix:accelerator"
+    ]
+  },
+  "dash": {
+    "sounds": [
+      "affix:dash"
+    ]
+  },
+  "whisper": {
+    "sounds": [
+      "affix:whisper"
+    ]
+  }
+}
+

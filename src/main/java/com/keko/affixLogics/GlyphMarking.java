@@ -1,6 +1,8 @@
 package com.keko.affixLogics;
 
+import com.keko.AffixClient;
 import com.keko.items.custom.HeavyMirror;
+import foundry.veil.api.client.util.Easings;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -23,9 +25,13 @@ public class GlyphMarking {
         LocalPlayer player = Minecraft.getInstance().player;
 
         int alphaFactor = (int)(mirrorOffset * 100 * 2);
-        if ( alphaFactor > 10 && player != null) {
-            guiGraphics.drawCenteredString(Minecraft.getInstance().font, String.format("%.3f", player.getX()), xMid - alphaFactor / 5, yMid, new Color(255, 255, 255, alphaFactor).getRGB());
-            guiGraphics.drawCenteredString(Minecraft.getInstance().font, String.format("%.3f", player.getZ()), xMid + alphaFactor / 5, yMid, new Color(255, 255, 255, alphaFactor).getRGB());
+        if (alphaFactor >= 5 && alphaFactor <= 255 && player != null) {
+            guiGraphics.drawCenteredString(Minecraft.getInstance().font, AffixClient.xAnom != 1111111111 ? String.format("%d", AffixClient.xAnom) : "✌☠⚐\uD83D\uDCA3✌☹✡", xMid - alphaFactor / 5, yMid  - alphaFactor / 10, new Color(255, 255, 255, alphaFactor).getRGB());
+            guiGraphics.drawCenteredString(Minecraft.getInstance().font, AffixClient.zAnom != 1111111111 ? String.format("%d", AffixClient.zAnom) : "\uD83D\uDC4E☜❄☜\uD83D\uDC4D❄☜\uD83D\uDC4E", xMid + alphaFactor / 5, yMid  - alphaFactor / 10, new Color(255, 255, 255, alphaFactor).getRGB());
+            guiGraphics.drawCenteredString(Minecraft.getInstance().font, String.format("%.0f", player.getX()), xMid - alphaFactor / 5, yMid  + alphaFactor / 10, new Color(255, 255, 255, alphaFactor).getRGB());
+            guiGraphics.drawCenteredString(Minecraft.getInstance().font, String.format("%.0f", player.getZ()), xMid + alphaFactor / 5, yMid  + alphaFactor / 10, new Color(255, 255, 255, alphaFactor).getRGB());
+
+            guiGraphics.drawCenteredString(Minecraft.getInstance().font, String.format("%d", AffixClient.anomalyCooldown / 20), xMid, yMid  - alphaFactor / 5, new Color(255, 255, 255, alphaFactor).getRGB());
         }
     }
 }

@@ -11,7 +11,7 @@ import net.minecraft.world.entity.MobCategory;
 public class ModEntities {
 
     public static final EntityType<FabricPocket> FABRIC_POCKET_ENTITY_TYPE = Registry.register(
-            BuiltInRegistries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "light_entity"),
+            BuiltInRegistries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "fabric_pocket"),
             EntityType.Builder.of(FabricPocket::new, MobCategory.MISC).sized(0.1f, 0.1f).build());
 
 

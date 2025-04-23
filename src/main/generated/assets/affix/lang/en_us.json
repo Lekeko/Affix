@@ -1,3 +1,12 @@
 {
-  "item.affix.heavy_mirror": "Heavy Mirror"
+  "effect.affix.accelerated": "Accelerated",
+  "effect.affix.unstable": "behind you",
+  "entity.affix.fabric_pocket": "|Fabric Pocket|",
+  "item.affix.accelerator": "Accelerator",
+  "item.affix.fabric_of_reality": "Fabric of Reality",
+  "item.affix.gravity_core": "Gravity Core",
+  "item.affix.heavy_mirror": "Heavy Mirror",
+  "item.affix.refractor": "Refractor",
+  "key.affix.affixmod": "Affix Controls",
+  "key.affix.dodge": "Dodge/Dash"
 }

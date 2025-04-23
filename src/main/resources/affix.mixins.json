@@ -1,14 +1,16 @@
 {
-	"required": true,
-	"package": "com.keko.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ExampleMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"client": [
-		"CancelItemRendererMixin"
-	]
+  "required": true,
+  "package": "com.keko.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "PlayerPhaseTroughBlocks"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "CancelItemRendererMixin",
+    "GetRendererDispatcher",
+    "RenderHandsMixin"
+  ]
 }

@@ -108,11 +108,11 @@ float gouIntersect( in vec3 ro, in vec3 rd, in float ka, float kb )
     float R = c2*c2*c2 - 3.0*c0*c2 + c1*c1;
     float h = R*R - Q*Q*Q;
 
-    if( h>0.0 ) // 2 intersections
+    if( h>0.0 )
     {
         h = sqrt(h);
-        float s = sign(R+h)*pow(abs(R+h),1.0/3.0); // cube root
-        float u = sign(R-h)*pow(abs(R-h),1.0/3.0); // cube root
+        float s = sign(R+h)*pow(abs(R+h),1.0/3.0);
+        float u = sign(R-h)*pow(abs(R-h),1.0/3.0);
         float x = s+u+4.0*c2;
         float y = s-u;
         float ks = x*x + y*y*3.0;
@@ -121,11 +121,10 @@ float gouIntersect( in vec3 ro, in vec3 rd, in float ka, float kb )
         return (po<0.0)?1.0/t:t;
     }
 
-    // 4 intersections
     float sQ = sqrt(Q);
     float w = sQ*cos(acos(-R/(sQ*Q))/3.0);
     float d2 = -w - c2;
-    if( d2<0.0 ) return -1.0; //no intersection
+    if( d2<0.0 ) return -1.0;
     float d1 = sqrt(d2);
     float h1 = sqrt(w - 2.0*c2 + c1/d1);
     float h2 = sqrt(w - 2.0*c2 - c1/d1);
@@ -156,10 +155,10 @@ float sph4Intersect( in vec3 ro, in vec3 rd, in float ra )
     float p = c2*c2 + c0/3.0;
     float q = c2*c2*c2 - c2*c0 + c1*c1;
     float h = q*q - p*p*p;
-    if( h<0.0 ) return -1.0; //no intersection
+    if( h<0.0 ) return -1.0;
     float sh = sqrt(h);
-    float s = sign(q+sh)*pow(abs(q+sh),1.0/3.0); // cuberoot
-    float t = sign(q-sh)*pow(abs(q-sh),1.0/3.0); // cuberoot
+    float s = sign(q+sh)*pow(abs(q+sh),1.0/3.0);
+    float t = sign(q-sh)*pow(abs(q-sh),1.0/3.0);
     vec2  w = vec2( s+t,s-t );
     vec2  v = vec2( w.x+c2*4.0, w.y*sqrt(3.0) )*0.5;
     float r = length(v);
@@ -220,7 +219,6 @@ void main() {
     vec3 boxPosition = camPos - posWorld;
 
 
-    vec3 iDontKnowWhatTheFuckIsANormal;
 
     vec3 size = vec3(0.5, 0.5, 0.5) + sin(speed) * 2 * atan(mirrorOffset);
     float rayHitSmall = sph4Intersect(boxPosition, rayDir, size.x );
@@ -229,12 +227,13 @@ void main() {
     bool hitSmall = rayHitSmall > 0.0;
     bool hitLarge = rayHitLarge > 0.0;
 
+
     if (hitSmall) {
         fragColor = vec4(1 - vec3(worldDepth) * 0.022, 1);
     } else if (hitLarge) {
         fragColor = vec4(vec3(vec3(worldDepth) * 0.022)*1.3  , 1.0);
     }
     else {
-        fragColor = vec4(vec3(baseColor * (1 - mirrorOffset) ), 1.0);
+        fragColor = vec4(vec3(baseColor * (1 - mirrorOffset * 1.06) ), 1.0);
     }
 }

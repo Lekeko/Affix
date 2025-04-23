@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "multi_bench",
+  "key": {
+    "1": {
+      "item": "affix:fabric_of_reality"
+    },
+    "2": {
+      "item": "affix:gravity_core"
+    },
+    "3": {
+      "item": "minecraft:soul_lantern"
+    }
+  },
+  "pattern": [
+    "121",
+    "232",
+    "121"
+  ],
+  "result": {
+    "count": 1,
+    "id": "affix:refractor"
+  }
+}

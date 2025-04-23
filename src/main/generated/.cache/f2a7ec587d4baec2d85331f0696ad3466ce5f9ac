@@ -1,1 +1,5 @@
-// 1.21.1	2025-03-20T22:52:51.81402	Affix/Recipes
+// 1.21.1	2025-04-23T17:37:45.9503482	Affix/Recipes
+ce16c2197a9410ee6f30a985e10dcec49be10fd7 data\affix\advancement\recipes\combat\refractor.json
+34ea272d6787c4fdcd5d6815e9ddd6a3b53ea074 data\affix\advancement\recipes\combat\accelerator.json
+9540720568db3c1ea34368f7f41da075245ec3f9 data\affix\recipe\refractor.json
+681f53d516093d6af6d7ecd03d1ab0526c2b5cdf data\affix\recipe\accelerator.json

@@ -1,10 +1,11 @@
 package com.keko.items.custom;
 
-import com.keko.Affix;
 import com.keko.AffixClient;
+import com.keko.entity.ModEntities;
+import com.keko.entity.fabricPocket.FabricPocket;
 import com.keko.items.ModItems;
 import com.keko.modComponents.ModComponents;
-import net.minecraft.util.Mth;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -15,6 +16,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class HeavyMirror extends Item {
 
@@ -59,20 +62,20 @@ public class HeavyMirror extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int i, boolean bl) {
-        initStack(stack);
+        initStack(stack, level, entity);
         if (level.isClientSide && entity instanceof Player){
-            float value = stack.get(ModComponents.MIRROR_POSITION_TRANSITION);
-            AffixClient.renderMirror = ((Player) entity).getMainHandItem().is(ModItems.HEAVY_MIRROR) || (((Player) entity).getOffhandItem().is(ModItems.HEAVY_MIRROR));
-            AffixClient.mirrorOffset = stack.get(ModComponents.MIRROR_POSITION_TRANSITION);
-            if (value >= 0)
-                stack.set(ModComponents.MIRROR_POSITION_TRANSITION,
-                        value / 1.25f < 0.001 ? 0f : value / 1.25f // I hate it
-                        );
+                float value = stack.get(ModComponents.MIRROR_POSITION_TRANSITION);
+                AffixClient.renderMirror = ((Player) entity).getMainHandItem().is(ModItems.HEAVY_MIRROR) || (((Player) entity).getOffhandItem().is(ModItems.HEAVY_MIRROR));
+                AffixClient.mirrorOffset = stack.get(ModComponents.MIRROR_POSITION_TRANSITION);
+                if (value >= 0)
+                    stack.set(ModComponents.MIRROR_POSITION_TRANSITION,
+                            value / 1.25f < 0.001 ? 0f : value / 1.25f // I hate it
+                    );
         }
         super.inventoryTick(stack, level, entity, i, bl);
     }
 
-    private void initStack(ItemStack stack) {
+    private void initStack(ItemStack stack, Level level, Entity entity) {
         if (stack.get(ModComponents.MIRROR_POSITION_TRANSITION) == null)
             stack.set(ModComponents.MIRROR_POSITION_TRANSITION, 2.0f);
     }
