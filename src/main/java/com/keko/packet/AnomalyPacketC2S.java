@@ -1,7 +1,6 @@
 package com.keko.packet;
 
 import com.keko.packet.networking.ModMessagesClient;
-import com.keko.packet.networking.ModMessagesServer;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;

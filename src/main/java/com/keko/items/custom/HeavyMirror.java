@@ -1,11 +1,8 @@
 package com.keko.items.custom;
 
 import com.keko.AffixClient;
-import com.keko.entity.ModEntities;
-import com.keko.entity.fabricPocket.FabricPocket;
 import com.keko.items.ModItems;
 import com.keko.modComponents.ModComponents;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -16,8 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class HeavyMirror extends Item {
 

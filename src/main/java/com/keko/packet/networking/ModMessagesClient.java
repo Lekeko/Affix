@@ -6,13 +6,11 @@ import com.keko.effects.ModStatusEffects;
 import com.keko.entity.ModEntities;
 import com.keko.entity.fabricPocket.FabricPocket;
 import com.keko.packet.*;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 
-import java.awt.*;
 
 public class ModMessagesClient {
     public static final ResourceLocation RENDER_MIRROR_SHADER = ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "render_mirror_shader_tp");

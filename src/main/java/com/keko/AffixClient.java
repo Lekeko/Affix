@@ -8,7 +8,6 @@ import com.keko.items.ModItems;
 import com.keko.items.custom.Accelerator;
 import com.keko.packet.AnomalyPacketC2S;
 import com.keko.packet.CrazyStatusC2S;
-import com.keko.packet.networking.ModMessagesClient;
 import com.keko.packet.networking.ModMessagesServer;
 import com.mojang.blaze3d.systems.RenderSystem;
 import foundry.veil.api.client.render.VeilRenderSystem;
@@ -20,11 +19,9 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
@@ -108,7 +105,6 @@ public class AffixClient implements ClientModInitializer {
 
         HudRenderCallback.EVENT.register(((guiGraphics, deltaTracker) -> {
             GlyphMarking.renderCoordinates(guiGraphics, deltaTracker, mirrorOffset);
-            GlyphMarking.renderImage(guiGraphics, deltaTracker, mirrorOffset);
             width = guiGraphics.guiWidth();
             height = guiGraphics.guiHeight();
             if (rage > 0)

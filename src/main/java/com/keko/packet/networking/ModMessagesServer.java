@@ -2,15 +2,10 @@ package com.keko.packet.networking;
 
 import com.keko.Affix;
 import com.keko.AffixClient;
-import com.keko.affixLogics.DodgeHandler;
 import com.keko.affixLogics.PlayerPhase;
 import com.keko.packet.*;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 
 import java.util.Objects;

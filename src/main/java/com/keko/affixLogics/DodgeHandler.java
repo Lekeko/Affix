@@ -19,7 +19,7 @@ public class DodgeHandler {
         double deltaZ_forward =  Mth.cos(yawRad) * forwardImpulse;
 
         double deltaX_left = -Mth.cos(yawRad) * -leftImpulse;
-        double deltaZ_left = -Mth.sin(yawRad) * -leftImpulse;
+        double deltaZ_left = -Mth.sin(yawRad) * -leftImpulse; //BLJ
 
         double deltaX = deltaX_forward + deltaX_left;
         double deltaZ = deltaZ_forward + deltaZ_left;

@@ -13,11 +13,6 @@ import java.awt.*;
 
 public class GlyphMarking {
 
-
-    public static void renderImage(GuiGraphics guiGraphics, DeltaTracker deltaTracker, float mirrorOffset){
-
-    }
-
     public static void renderCoordinates(GuiGraphics guiGraphics, DeltaTracker deltaTracker, float mirrorOffset) {
         int xMid = guiGraphics.guiWidth() / 2;
         int yMid = guiGraphics.guiHeight() / 2 - 4;

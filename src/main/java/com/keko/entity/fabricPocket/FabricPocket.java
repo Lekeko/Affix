@@ -3,7 +3,6 @@ package com.keko.entity.fabricPocket;
 import com.keko.affixLogics.BoxHelper;
 import com.keko.items.ModItems;
 import com.keko.sounds.ModSounds;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -20,7 +19,6 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FabricPocket extends Entity implements GeoEntity {

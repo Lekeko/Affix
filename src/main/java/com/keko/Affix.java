@@ -11,7 +11,6 @@ import com.keko.modComponents.ModComponents;
 import com.keko.packet.SyncPhaserRemoverS2C;
 import com.keko.packet.SyncPhaserS2C;
 import com.keko.packet.networking.ModMessagesClient;
-import com.keko.packet.networking.ModMessagesServer;
 import com.keko.sounds.ModSounds;
 import com.keko.util.ModLootTableModif;
 import eu.midnightdust.lib.config.MidnightConfig;
@@ -21,11 +20,9 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +30,6 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
 public class Affix implements ModInitializer {
 	public static final String MOD_ID = "affix";
