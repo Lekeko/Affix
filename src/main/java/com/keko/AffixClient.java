@@ -185,6 +185,10 @@ public class AffixClient implements ClientModInitializer {
     }
 
     private void initiateAnomaly(Minecraft minecraft) {
+        yAnom = 300;
+        BlockState state = minecraft.level.getBlockState(new BlockPos(xAnom, yAnom, zAnom));
+        while (state.is(Blocks.AIR) && yAnom > -64) state = minecraft.level.getBlockState(new BlockPos(xAnom, --yAnom, zAnom));
+        yAnom += 5;
         ClientPlayNetworking.send(new AnomalyPacketC2S(xAnom, yAnom ,zAnom));
         xAnom = 1111111111;
         zAnom = 1111111111;
@@ -209,6 +213,7 @@ public class AffixClient implements ClientModInitializer {
             while (state.is(Blocks.AIR) && yAnom > -64) state = minecraft.level.getBlockState(new BlockPos(xAnom, --yAnom, zAnom));
 
             yAnom += 5;
+
         }
     }
 
