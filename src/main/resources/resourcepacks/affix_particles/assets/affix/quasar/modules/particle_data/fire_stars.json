@@ -1,0 +1,20 @@
+{
+
+  "render_style": "BILLBOARD",
+  "init_modules": [
+    "affix:star_light"
+  ],
+  "update_modules": [
+    "affix:force/drag/small_drag"
+  ],
+  "collision_modules": [
+  ],
+  "forces": [
+  ],
+  "render_modules": [
+    "affix:trail/white_trail"
+  ],
+  "face_velocity": false,
+  "velocity_stretch_factor": 0.0,
+  "should_collide": true
+}

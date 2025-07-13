@@ -1,0 +1,14 @@
+{
+  "vertex": "veil:blit_screen",
+  "fragment": "affix:fire_ball",
+  "textures": {
+    "NoiseTexture": {
+      "type": "location",
+      "location": "affix:textures/shader/noise/noise1.png"
+    },
+    "DistortTexture": {
+      "type": "location",
+      "location": "affix:textures/shader/distort/distort1.png"
+    }
+  }
+}

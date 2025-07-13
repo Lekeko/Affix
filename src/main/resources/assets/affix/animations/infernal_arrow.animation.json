@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"infernal_arrow.trail": {
+			"animation_length":0.1,
+			"bones": {
+				"bone3": {
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"0.1": {
+							"vector": [1, 0, 1],
+							"easing": "easeOut"
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

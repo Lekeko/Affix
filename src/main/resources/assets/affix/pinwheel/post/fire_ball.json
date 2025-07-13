@@ -1,0 +1,9 @@
+{
+  "stages": [
+    {
+      "type": "veil:blit",
+      "shader": "affix:fire_ball",
+      "in": "minecraft:main"
+    }
+  ]
+}

@@ -44,9 +44,6 @@ dependencies {
 	modImplementation("foundry.veil:veil-fabric-${project.minecraft_version}:${project.veil_version}") {
 		exclude group: "maven.modrinth"
 	}
-	include("foundry.veil:veil-fabric-${project.minecraft_version}:${project.veil_version}") {
-		exclude group: "maven.modrinth"
-	}
 	modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${geckolib_version}"
 	modImplementation include ("maven.modrinth:midnightlib:${project.midnightlib_version}")
 

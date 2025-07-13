@@ -1,6 +1,9 @@
-// 1.21.1	2025-04-23T17:37:45.949351	Affix/Model Definitions
-2d2cb6617c10e5e4528464849c3bf37a24078a3a assets\affix\models\item\accelerator.json
-ceeef9a0f46e2773b0759c25a28a4a5264f68807 assets\affix\models\item\refractor.json
+// 1.21.1	2025-07-12T23:30:57.4851895	Affix/Model Definitions
 4761acb22efbe182349350e1338f67f79f7a5e75 assets\affix\models\item\gravity_core.json
-d74a0c341ba478e85e6f3a207218d820e784a5c5 assets\affix\models\item\fabric_of_reality.json
+f7fb6c4994ba20b1a49943864926892faf20099f assets\affix\models\item\death_simulacrum.json
 a7c4101698690ee755b7591a7643a954829835a5 assets\affix\models\item\heavy_mirror.json
+571f92c53cf93182eeca21c7b9cd675dd796d781 assets\affix\models\item\infernal_tome.json
+d74a0c341ba478e85e6f3a207218d820e784a5c5 assets\affix\models\item\fabric_of_reality.json
+917e868c630cd2d67c767632e6315aa0de8d10da assets\affix\models\item\quasar_caller.json
+ceeef9a0f46e2773b0759c25a28a4a5264f68807 assets\affix\models\item\refractor.json
+2d2cb6617c10e5e4528464849c3bf37a24078a3a assets\affix\models\item\accelerator.json

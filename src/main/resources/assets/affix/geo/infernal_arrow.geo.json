@@ -1,0 +1,51 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 5.5,
+				"visible_bounds_offset": [0, 2.25, 0]
+			},
+			"bones": [
+				{
+					"name": "bone2",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "trail",
+					"parent": "bone2",
+					"pivot": [0, 3.8, -1],
+					"rotation": [0, 0, 45],
+					"cubes": [
+						{"origin": [-3, 4.8, 0], "size": [3, 2, 0], "uv": [8, 3]},
+						{"origin": [-3, 3.8, 0], "size": [3, 1, 0], "uv": [0, 8]}
+					]
+				},
+				{
+					"name": "bone",
+					"parent": "bone2",
+					"pivot": [0, 1, -0.5],
+					"rotation": [0, 0, 45],
+					"cubes": [
+						{"origin": [-1, 2, -0.5], "size": [2, 6, 1], "uv": [6, 10]},
+						{"origin": [-7, 0, -0.5], "size": [8, 2, 1], "uv": [0, 5]}
+					]
+				},
+				{
+					"name": "bone3",
+					"parent": "bone2",
+					"pivot": [0, 5, 0],
+					"cubes": [
+						{"origin": [-6, 5, -1], "size": [2, 24, 2], "uv": [20, 24]},
+						{"origin": [-4, 5, 0], "size": [8, 24, 0], "uv": [20, 0]},
+						{"origin": [4, 5, -1], "size": [2, 24, 2], "uv": [20, 24]}
+					]
+				}
+			]
+		}
+	]
+}

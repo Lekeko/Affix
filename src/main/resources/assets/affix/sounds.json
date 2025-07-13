@@ -23,6 +23,31 @@
     "sounds": [
       "affix:whisper"
     ]
+  },
+  "infernal_arrow_hit": {
+    "sounds": [
+      "affix:infernal_arrow_hit"
+    ]
+  },
+  "spell": {
+    "sounds": [
+      "affix:spell"
+    ]
+  },
+  "dragon_blast": {
+    "sounds": [
+      "affix:dragon_blast"
+    ]
+  },
+  "dragon_summon": {
+    "sounds": [
+      "affix:dragon_summon"
+    ]
+  },
+  "spear": {
+    "sounds": [
+      "affix:spear"
+    ]
   }
 }
 

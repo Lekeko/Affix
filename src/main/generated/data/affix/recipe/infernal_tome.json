@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "multi_bench",
+  "key": {
+    "1": {
+      "item": "minecraft:magma_cream"
+    },
+    "2": {
+      "item": "minecraft:dragon_breath"
+    },
+    "3": {
+      "item": "minecraft:book"
+    },
+    "4": {
+      "item": "minecraft:nether_star"
+    },
+    "5": {
+      "item": "minecraft:magma_block"
+    },
+    "6": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "616",
+    "234",
+    "656"
+  ],
+  "result": {
+    "count": 1,
+    "id": "affix:infernal_tome"
+  }
+}

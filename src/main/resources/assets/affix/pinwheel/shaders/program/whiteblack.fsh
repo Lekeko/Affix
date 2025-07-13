@@ -1,4 +1,4 @@
-#include veil:deferred_utils
+#include veil:space_helper
 
 uniform sampler2D DiffuseSampler0;
 uniform sampler2D DiffuseDepthSampler;
@@ -10,6 +10,10 @@ uniform float PI = 3.141592653;
 
 in vec2 texCoord;
 out vec4 fragColor;
+
+uniform vec3 shaderAccent;
+uniform float fogAttenuator;
+
 
 mat3 rotatorUD(float angle){
     return mat3(
@@ -75,7 +79,7 @@ float hash21(vec2 p) {
 void main() {
     vec4 baseColor = texture(DiffuseSampler0, texCoord);
     float depthSample = texture(DiffuseDepthSampler, texCoord).r;
-    float worldDepth = depthSampleToWorldDepth(depthSample) ;
+    float worldDepth = (1-depthSample) * 310;
 
 
 
@@ -86,17 +90,10 @@ void main() {
     float easedTransition = 1.0 - easedT;
     float distanceFactor = 221 / transition;
 
+    float avg = (baseColor.x + baseColor.y  +baseColor.z)/3;
+
     vec3 color1 = baseColor.xyz;
-    vec3 color2 = vec3(worldDepth / (211 * (1-transition)));
-    //////////////////////////////////////////////////////////////////////////////////////////////////////
-    float speed = GameTime * 1000;
+    vec3 color2 = vec3(min(worldDepth, 2) * avg * shaderAccent / 255);
 
-    float LR =  worldDepth;
-    float UD = cos(speed);
-    float maybe = sin(speed);
-
-    vec3 viewPos = viewPosFromDepthSample(depthSample, texCoord);
-    vec3 rayDir = viewDirFromUv(texCoord)* rotatorLR(LR) * rotatorUD(UD) * rotatorMaybe(maybe);
-
-    fragColor = vec4(mix(color1, (1-color2 )/ 3, easedTransition), 1.1);
+    fragColor = vec4(mix(color1, color2, easedTransition), 1.1);
 }

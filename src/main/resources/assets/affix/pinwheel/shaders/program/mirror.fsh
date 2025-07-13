@@ -1,4 +1,4 @@
-#include veil:deferred_utils
+#include veil:space_helper
 
 uniform sampler2D DiffuseSampler0;
 uniform sampler2D DiffuseDepthSampler;
@@ -11,6 +11,20 @@ uniform float PI = 3.141592653;
 in vec2 texCoord;
 out vec4 fragColor;
 
+uniform vec3 shaderAccent;
+
+float depthSampleToWorldDepth(float depthSample) {
+    float f = depthSample * 2.0 - 1.0;
+    return 2.0 * VeilCamera.NearPlane * VeilCamera.FarPlane / (VeilCamera.FarPlane + VeilCamera.NearPlane - f * (VeilCamera.FarPlane - VeilCamera.NearPlane));
+}
+
+vec3 viewPosFromDepthSample(float depth, vec2 uv) {
+    vec4 positionCS = vec4(uv, depth, 1.0) * 2.0 - 1.0;
+    vec4 positionVS = VeilCamera.IProjMat * positionCS;
+    positionVS /= positionVS.w;
+
+    return positionVS.xyz;
+}
 
 vec2 boxIntersection(in vec3 ro, in vec3 rd, vec3 boxSize, out vec3 outNormal) {
     vec3 m = 1.0 / rd;
@@ -191,7 +205,7 @@ void main() {
     float speed = GameTime * 1400;
     vec4 baseColor = texture(DiffuseSampler0, texCoord);
     float depthSample = texture(DiffuseDepthSampler, texCoord).r;
-    float worldDepth = depthSampleToWorldDepth(depthSample) ;
+    float worldDepth = depthSample * 5000;
 
     float LR =  worldDepth;
     float UD = cos(speed);
@@ -229,11 +243,13 @@ void main() {
 
 
     if (hitSmall) {
-        fragColor = vec4(1 - vec3(worldDepth) * 0.022, 1);
+        fragColor = vec4((vec3(1-depthSample) * 62)
+        * shaderAccent / 255, 1.0);
     } else if (hitLarge) {
-        fragColor = vec4(vec3(vec3(worldDepth) * 0.022)*1.3  , 1.0);
+        fragColor = vec4(1-((vec3(1-depthSample) * 62)
+        * shaderAccent / 255), 1.0);
     }
     else {
-        fragColor = vec4(vec3(baseColor * (1 - mirrorOffset * 1.06) ), 1.0);
+        fragColor = vec4(vec3(baseColor * (1 - mirrorOffset * 1.06)), 1.0);
     }
 }

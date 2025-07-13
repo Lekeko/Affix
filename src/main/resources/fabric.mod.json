@@ -3,26 +3,24 @@
 	"id": "affix",
 	"version": "${version}",
 	"name": "Affix",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A minecraft mod that experiments with interesting mechanics based on other games or genuine new type of mechanics",
 	"authors": [
-		"Me!"
+		"Keko!"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/affix/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.keko.Affix"
+          "com.keko.affix.Affix"
 		],
 		"fabric-datagen": [
-			"com.keko.AffixDataGenerator"
+          "com.keko.affix.AffixDataGenerator"
 		],
 		"client": [
-			"com.keko.AffixClient"
+          "com.keko.affix.AffixClient"
 		]
 	},
 	"mixins": [
