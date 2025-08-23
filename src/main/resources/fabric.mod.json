@@ -21,6 +21,9 @@
 		],
 		"client": [
           "com.keko.affix.AffixClient"
+		],
+		"cardinal-components-entity": [
+			"com.keko.affix.util.cc.MyComponents"
 		]
 	},
 	"mixins": [
@@ -30,9 +33,15 @@
 		"fabricloader": ">=0.16.10",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"veil" : "=2.1.1"
 	},
 	"suggests": {
 		"another-mod": "*"
+	},
+	"custom": {
+		"cardinal-components": [
+			"affix:score"
+		]
 	}
 }

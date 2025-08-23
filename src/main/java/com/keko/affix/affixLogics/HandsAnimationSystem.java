@@ -35,7 +35,7 @@ public class HandsAnimationSystem {
         PlayerRenderer playerRenderer = (PlayerRenderer) entityRenderDispatcher.getRenderer(clientPlayer);
 
         if (tickerAccelerator <=4) {
-            tickerAccelerator += Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true) / 30;
+            tickerAccelerator += Minecraft.getInstance().getTimer().getGameTimeDeltaTicks() / 15;
             equipProgress = 0;
             poseStack.pushPose();
             {
@@ -113,7 +113,7 @@ public class HandsAnimationSystem {
         PlayerRenderer playerRenderer = (PlayerRenderer) entityRenderDispatcher.getRenderer(clientPlayer);
 
         if (tickerInfernalArrow <=4 && tickerInfernalArrow >= -1.5f) {
-            tickerInfernalArrow += Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true) / 25;
+            tickerInfernalArrow += Minecraft.getInstance().getTimer().getGameTimeDeltaTicks() / 8;
             equipProgress = 0;
             poseStack.pushPose();
             {
@@ -176,7 +176,7 @@ public class HandsAnimationSystem {
 
             ci.cancel();
         }else {
-            tickerInfernalArrow += (float) (Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true) / 1000);
+            tickerInfernalArrow += (float) (Minecraft.getInstance().getTimer().getGameTimeDeltaTicks() / 300);
             equipProgress = 0;
             float randomX = clientPlayer.getRandom().nextFloat()/ 15;
             float randomY = clientPlayer.getRandom().nextFloat()/ 15;

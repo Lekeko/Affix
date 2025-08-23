@@ -4,6 +4,7 @@ import com.keko.affix.entity.ModEntities;
 import com.keko.affix.entity.infernalArrow.InfernalArrow;
 import com.keko.affix.entity.infernalExplosion.InfernalExplosion;
 import com.keko.affix.helpers.Directional;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -12,8 +13,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+
+import java.awt.*;
+import java.util.List;
 
 public class QuasarCaller extends Item {
     public QuasarCaller(Properties properties) {
@@ -22,6 +27,11 @@ public class QuasarCaller extends Item {
 
     public float lerp (float start, float finish, float t){
         return start * (1-t) + finish * t;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
+        list.add(Component.translatable("Recommended to use with high entity render distance!!!").withColor(Color.GRAY.getRGB()));
     }
 
     @Override
@@ -106,7 +116,7 @@ public class QuasarCaller extends Item {
         if (livingEntity instanceof Player){
             Player player = (Player) livingEntity;
             if (!player.isCreative())
-                player.getCooldowns().addCooldown(this, 20 * 120);
+                player.getCooldowns().addCooldown(this, 20 * 30);
         }
         return super.finishUsingItem(itemStack, level, livingEntity);
     }
@@ -116,7 +126,7 @@ public class QuasarCaller extends Item {
         if (livingEntity instanceof Player){
             Player player = (Player) livingEntity;
             if (!player.isCreative())
-                player.getCooldowns().addCooldown(this, 20 * 80);//intended
+                player.getCooldowns().addCooldown(this, 20 * 20);//intended
         }
         super.releaseUsing(itemStack, level, livingEntity, i);
     }

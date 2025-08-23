@@ -36,7 +36,7 @@ public class SpellHud {
         int spellNumber = 3;
         int size = 48;
 
-        alpha+= deltaTracker.getGameTimeDeltaPartialTick(true) / 20;
+        alpha+= deltaTracker.getGameTimeDeltaTicks() / 10;
         ArrayList<String> code = new ArrayList<String>();
         int[] mayContinue = {1,1,1};
 
@@ -123,7 +123,7 @@ public class SpellHud {
 
                     int ok = 0;
                     try {
-                        if (AffixClient.getKeyInputs().get(j).charAt(0) == code.get(i).charAt(j))
+                        if (AffixRenderingHandlers.getKeyInputs().get(j).charAt(0) == code.get(i).charAt(j))
                             ok = 1;
                         else mayContinue[i] = 0;
 
@@ -167,7 +167,7 @@ public class SpellHud {
         int height = guiGraphics.guiHeight();
         int size = 50;
 
-        alpha2+= deltaTracker.getGameTimeDeltaPartialTick(true) / 20;
+        alpha2+= deltaTracker.getGameTimeDeltaTicks() / 3;
         float drag = 0.1f;
         float deltaX = (alpha2* 60);
         float signX = Math.signum(deltaX);
@@ -262,21 +262,21 @@ public class SpellHud {
         StringBuilder input = new StringBuilder();
         Vec3 vec3 = Directional.rayCast(Minecraft.getInstance().level, Minecraft.getInstance().player, Minecraft.getInstance().player.getViewVector(1.0f), 13 * (Minecraft.getInstance().options.renderDistance().get()-2));
 
-        for (int i = 0; i < AffixClient.getKeyInputs().size(); i++)
-            input.append(AffixClient.getKeyInputs().get(i));
+        for (int i = 0; i < AffixRenderingHandlers.getKeyInputs().size(); i++)
+            input.append(AffixRenderingHandlers.getKeyInputs().get(i));
         if (code.contains(input.toString())){
             switch (code.indexOf(input.toString())){
-                case 0 : ClientPlayNetworking.send(new DragonSummonPacketC2S((int) vec3.x, (int) vec3.y, (int) vec3.z)); AffixClient.getKeyInputs().add("z");break;
-                case 1 : ClientPlayNetworking.send(new SpearSummonPacketC2S((int) vec3.x, (int) vec3.y, (int) vec3.z, Minecraft.getInstance().player.getId()));AffixClient.getKeyInputs().add("z");break;
+                case 0 : ClientPlayNetworking.send(new DragonSummonPacketC2S((int) vec3.x, (int) vec3.y, (int) vec3.z)); AffixRenderingHandlers.getKeyInputs().add("z");break;
+                case 1 : ClientPlayNetworking.send(new SpearSummonPacketC2S((int) vec3.x, (int) vec3.y, (int) vec3.z, Minecraft.getInstance().player.getId()));AffixRenderingHandlers.getKeyInputs().add("z");break;
                 case 2 : {
                     initiateBeaconHud(guiGraphics, deltaTracker);
                 }
             }
         }
-        if (AffixClient.getKeyInputs().size() == 6)
-            if (code.contains(input.substring(0, AffixClient.getKeyInputs().size()-1))){
+        if (AffixRenderingHandlers.getKeyInputs().size() == 6)
+            if (code.contains(input.substring(0, AffixRenderingHandlers.getKeyInputs().size()-1))){
                 int beacon = 0;
-                switch (AffixClient.getKeyInputs().getLast()){
+                switch (AffixRenderingHandlers.getKeyInputs().getLast()){
                     case "u"-> beacon = 1;
                     case "d"-> beacon = 2;
                     case "l"-> beacon = 3;
@@ -284,7 +284,7 @@ public class SpellHud {
                 }
                 if (beacon != 0) {
                     ClientPlayNetworking.send(new BeaconSummonPacketC2S((int) vec3.x, (int) vec3.y, (int) vec3.z, beacon));
-                    AffixClient.getKeyInputs().add("z");
+                    AffixRenderingHandlers.getKeyInputs().add("z");
                 }
             }
 

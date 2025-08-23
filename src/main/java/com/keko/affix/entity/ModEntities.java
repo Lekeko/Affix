@@ -1,6 +1,10 @@
 package com.keko.affix.entity;
 
 import com.keko.affix.Affix;
+import com.keko.affix.entity.enderExplosion.EnderExplosion;
+import com.keko.affix.entity.enderFingers.EnderFingers;
+import com.keko.affix.entity.enderFist.EnderFist;
+import com.keko.affix.entity.enderFist.EnderFistModel;
 import com.keko.affix.entity.fabricPocket.FabricPocket;
 import com.keko.affix.entity.infernalArrow.InfernalArrow;
 import com.keko.affix.entity.infernalBeacon.InfernalBeacon;
@@ -43,6 +47,18 @@ public class ModEntities {
     public static final EntityType<InfernalDragon> INFERNAL_DRAGON = Registry.register(
             BuiltInRegistries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "infernal_dragon"),
             EntityType.Builder.of(InfernalDragon::new, MobCategory.MISC).sized(5.5f, 5.5f).build());
+
+    public static final EntityType<EnderFingers> ENDER_FINGERS = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "ender_fingers"),
+            EntityType.Builder.of(EnderFingers::new, MobCategory.MISC).sized(.1f, .1f).build());
+
+    public static final EntityType<EnderFist> ENDER_FIST = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "ender_fist"),
+            EntityType.Builder.of(EnderFist::new, MobCategory.MISC).sized(.1f, .1f).build());
+
+    public static final EntityType<EnderExplosion> ENDER_EXPLOSION = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, "ender_explosion"),
+            EntityType.Builder.of(EnderExplosion::new, MobCategory.MISC).sized(.1f, .1f).build());
 
     public static void registerEntities(){}
 

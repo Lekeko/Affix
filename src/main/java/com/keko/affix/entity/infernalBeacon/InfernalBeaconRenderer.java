@@ -1,6 +1,7 @@
 package com.keko.affix.entity.infernalBeacon;
 
 import com.keko.affix.Affix;
+import com.keko.affix.affixLogics.AffixShaderHandlers;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -46,6 +47,9 @@ public class InfernalBeaconRenderer extends GeoEntityRenderer<InfernalBeacon> {
 
         int fullBright = LightTexture.pack(15, 15);
         super.render(infernalBeacon, f, g, poseStack, multiBufferSource, fullBright);poseStack.popPose();
+
+        infernalBeacon.addTimer(Minecraft.getInstance().getTimer().getGameTimeDeltaTicks() * 5);
+        AffixShaderHandlers.blackWholeShaderActivator(infernalBeacon.getPosition(1.0f), infernalBeacon.getTimer());
 
 
     }

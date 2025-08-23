@@ -5,43 +5,57 @@ import com.keko.affix.affixLogics.PlayerPhase;
 import com.keko.affix.effects.ModStatusEffects;
 import com.keko.affix.entity.ModBlockEntityTypes;
 import com.keko.affix.entity.ModEntities;
+import com.keko.affix.entity.enderFist.EnderFist;
 import com.keko.affix.items.ModGroupItem;
 import com.keko.affix.items.ModItems;
 import com.keko.affix.midLib.AffixConfigs;
 import com.keko.affix.modComponents.ModComponents;
+import com.keko.affix.packet.AwardForKillingS2C;
 import com.keko.affix.packet.SyncPhaserRemoverS2C;
 import com.keko.affix.packet.SyncPhaserS2C;
 import com.keko.affix.packet.networking.ModMessagesClient;
+import com.keko.affix.particle.ModParticles;
 import com.keko.affix.sounds.ModSounds;
 import com.keko.affix.util.ModLootTableModif;
+import com.keko.affix.util.cc.ScoreComponent;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static com.keko.affix.util.cc.MyComponents.SCORE;
+
 public class Affix implements ModInitializer {
 	public static final String MOD_ID = "affix";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	private static ArrayList<PlayerPhase> phasingPlayers = new ArrayList<>();
-
+	private static ArrayList<EnderFist> enderFists = new ArrayList<>();
+	private int ticker = 0;
 	public static void addPlayer(PlayerPhase playerPhase) {
 		for (PlayerPhase playerPhase1 : phasingPlayers)
 			if (playerPhase1.getPlayer() == playerPhase.getPlayer())
@@ -61,8 +75,12 @@ public class Affix implements ModInitializer {
 		return ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, name);
     }
 
+	public static void addFist(EnderFist enderFist) {
+		enderFists.add(enderFist);
+	}
 
-    @Override
+
+	@Override
 	public void onInitialize() {
 		LOGGER.info("Affixing......");
 
@@ -88,10 +106,39 @@ public class Affix implements ModInitializer {
 
 					}
 				}
+
+			}
+			ticker++;
+			if (ticker > 40) {
+				if (!enderFists.isEmpty()) {
+					Iterator<EnderFist> iterator = enderFists.iterator();
+					while (iterator.hasNext()) {
+						EnderFist enderFist = iterator.next();
+						if (enderFist.getOwner() == null) {
+							enderFist.discard();
+							iterator.remove();
+
+							return;
+						}
+						if (enderFist.level().dimension() != enderFist.getOwner().level().dimension()) {
+							enderFist.discard();
+							iterator.remove();
+						}
+					}
+
+				}
+				ticker = 0;
 			}
 
 			scarePlayers(minecraftServer);
 		}));
+
+		ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((level, entity, killedEntity) -> {
+			if (entity instanceof Player && ((Player) entity).hasEffect(ModStatusEffects.OTHERWORDLY) && entity.isAlive() && killedEntity instanceof LivingEntity)
+				ServerPlayNetworking.send((ServerPlayer) entity, new AwardForKillingS2C(killedEntity instanceof Monster ? 200 : 50, killedEntity instanceof Monster ? 0.2f : 0.1f));
+		});
+
+
 
 	}
 
@@ -127,9 +174,9 @@ public class Affix implements ModInitializer {
 		ModGroupItem.register();
 		ModStatusEffects.registerStatusEffects();
 		ModSounds.registerSounds();
-		MidnightConfig.init(MOD_ID, AffixConfigs.class);
 		ModMessagesClient.registerC2SPacket();
 		ModLootTableModif.modifu();
 		ModBlockEntityTypes.registerBlockEnt();
+		ModParticles.innit();
 	}
 }

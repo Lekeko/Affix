@@ -16,7 +16,7 @@ public class AdustedEffect extends MobEffect {
     @Override
     public boolean applyEffectTick(LivingEntity entity, int amplifier) {
         if (!entity.level().isClientSide){
-            entity.hurt(ModDamageTypes.of(entity.level(), ModDamageTypes.SCORCHED_DAMAGE_TYPE), entity.getMaxHealth() / 4 + 10);
+            entity.hurt(ModDamageTypes.of(entity.level(), ModDamageTypes.SCORCHED_DAMAGE_TYPE), entity.getMaxHealth() / 8 + 2);
 
         }
         return super.applyEffectTick(entity, amplifier);

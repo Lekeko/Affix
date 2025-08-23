@@ -1,5 +1,6 @@
 package com.keko.affix.affixLogics;
 
+import com.keko.affix.effects.ModStatusEffects;
 import com.keko.affix.packet.GenericSpawnerParticleS2C;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.level.ServerLevel;
@@ -23,8 +24,14 @@ public class DodgeHandler {
         double deltaZ = deltaZ_forward + deltaZ_left;
 
         double deltaY = jump && player.onGround() ? 1 : 0;
+        if (player.hasEffect(ModStatusEffects.OTHERWORDLY)){
+            deltaX *=2;
+            deltaY *=2;
+            deltaZ *=2;
+        }
         player.push(deltaX, deltaY, deltaZ);
         player.hurtMarked = true;
+
 
         spawnCoolAssParticles(player, -deltaX, -deltaY, -deltaZ);
     }

@@ -3,13 +3,16 @@
   "package": "com.keko.affix.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "PlayerPhaseTroughBlocks"
+    "PlayerDamageMixin",
+    "PlayerPhaseTroughBlocks",
+    "YouKnowWhoThisIsForLol"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
     "CancelItemRendererMixin",
+    "FovAccessor",
     "RenderHandsMixin"
   ]
 }

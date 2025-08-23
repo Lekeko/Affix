@@ -1,6 +1,7 @@
 package com.keko.affix.mixin;
 
 
+import com.keko.affix.AffixClient;
 import com.keko.affix.affixLogics.HandsAnimationSystem;
 import com.keko.affix.items.ModItems;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -29,6 +30,10 @@ public abstract class RenderHandsMixin {
 
     @Inject(method = "renderPlayerArm", at = @At("HEAD"), cancellable = true)
     private void renderTwoArmsSeparately(PoseStack poseStack, MultiBufferSource multiBufferSource, int light, float tick, float equipProgress, HumanoidArm humanoidArm, CallbackInfo ci) {
+        if (AffixClient.getJammer().getSound()!= null){
+            if (AffixClient.getJammer().getSound().isPlaying())
+                ci.cancel();
+        }
         HandsAnimationSystem.methodInMixin(poseStack, multiBufferSource, light, tick, equipProgress, humanoidArm, ci, minecraft, entityRenderDispatcher);
     }
 

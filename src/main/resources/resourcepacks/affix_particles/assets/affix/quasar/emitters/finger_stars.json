@@ -1,0 +1,13 @@
+{
+  "max_lifetime": 10,
+  "loop": false,
+  "rate": 1,
+  "count": 1,
+  "emitter_settings": {
+    "shape": [
+      "affix:small_ring"
+    ],
+    "particle_settings": "affix:finger_stars"
+  },
+  "particle_data": "affix:finger_stars"
+}

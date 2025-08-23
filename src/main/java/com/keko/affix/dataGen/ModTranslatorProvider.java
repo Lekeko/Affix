@@ -27,8 +27,12 @@ public class ModTranslatorProvider extends FabricLanguageProvider {
         translationBuilder.add(ModEntities.FABRIC_POCKET_ENTITY_TYPE, "|Fabric Pocket|");
         translationBuilder.add(KeyBinds.dodgeKeyBind.getName(), "Dodge/Dash");
         translationBuilder.add(KeyBinds.dodgeKeyBind.getCategory(), "Affix Controls");
-        translationBuilder.add("effect.com.keko.affix.accelerated", "Accelerated");
-        translationBuilder.add("effect.com.keko.affix.unstable", "behind you");
+        translationBuilder.add(KeyBinds.rocketScanKey.getName(), "Rocket scan");
+        translationBuilder.add(KeyBinds.rocketLaunchKey.getName(), "Rocket launch");
+        translationBuilder.add(KeyBinds.jamKeyBind.getName(), "Open jamming screen");
+        translationBuilder.add("effect.affix.accelerated", "Accelerated");
+        translationBuilder.add("effect.affix.unstable", "behind you");
+        translationBuilder.add("effect.affix.otherwordly", "It's jamming time!");
         translationBuilder.add("affix.midnightconfig.title", "Affix Configs");
         translationBuilder.add("death.attack.flamed", "%1$s got their soul kindled!");
         translationBuilder.add("death.attack.scorched", "%1$s got their skin scorched!");

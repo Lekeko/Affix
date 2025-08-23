@@ -11,12 +11,8 @@ public class GlyphSpawner {
 
     public static Glyph createGlyph(float rage){
         Minecraft minecraft = Minecraft.getInstance();
-        int monitorSizeX = 0;
-        int monitorSizeY = 0;
-        if (AffixClient.width != 0 && AffixClient.height != 0){
-            monitorSizeX = AffixClient.width;
-            monitorSizeY = AffixClient.height;
-        }
+        int monitorSizeX = minecraft.getWindow().getWidth()/4 + 1;
+        int monitorSizeY = minecraft.getWindow().getHeight()/4 + 1;
         int posX = 0;
         int posY = 0;
         boolean mark = false;
@@ -44,6 +40,6 @@ public class GlyphSpawner {
             deltaY = 0;
 
 
-        return new Glyph(image, rage, posX, posY, deltaX, deltaY);
+        return new Glyph(image, rage, posX, posY, deltaX, deltaY, 60);
     }
 }

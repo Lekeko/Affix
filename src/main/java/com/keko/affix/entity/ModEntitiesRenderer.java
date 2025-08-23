@@ -1,5 +1,8 @@
 package com.keko.affix.entity;
 
+import com.keko.affix.entity.enderExplosion.EnderExplosionRenderer;
+import com.keko.affix.entity.enderFingers.EnderFingersRenderer;
+import com.keko.affix.entity.enderFist.EnderFistRenderer;
 import com.keko.affix.entity.fabricPocket.FabricPocketRenderer;
 import com.keko.affix.entity.infernalArrow.InfernalArrowRenderer;
 import com.keko.affix.entity.infernalBeacon.InfernalBeaconRenderer;
@@ -18,5 +21,8 @@ public class ModEntitiesRenderer {
         EntityRendererRegistry.register(ModEntities.INFERNAL_PORTAL, InfernalPortalRenderer::new);
         EntityRendererRegistry.register(ModEntities.INFERNAL_PRISON, InfernalPrisonRenderer::new);
         EntityRendererRegistry.register(ModEntities.INFERNAL_BEACON, InfernalBeaconRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ENDER_FINGERS, EnderFingersRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ENDER_FIST, EnderFistRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ENDER_EXPLOSION, EnderExplosionRenderer::new);
     }
 }

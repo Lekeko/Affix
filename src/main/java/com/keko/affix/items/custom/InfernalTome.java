@@ -3,20 +3,30 @@ package com.keko.affix.items.custom;
 import com.keko.affix.entity.ModEntities;
 import com.keko.affix.helpers.Directional;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
+
+import java.awt.*;
+import java.util.List;
 
 public class InfernalTome extends Item {
     private final int CAST_TIME = 10;
     public InfernalTome(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag) {
+        list.add(Component.translatable("Recommended to use with high entity render distance!!!").withColor(Color.GRAY.getRGB()));
     }
 
     @Override

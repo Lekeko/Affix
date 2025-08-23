@@ -11,7 +11,7 @@ import java.util.function.UnaryOperator;
 
 public class ModComponents {
 
-    public static final DataComponentType<Float> MIRROR_POSITION_TRANSITION = register("MIRROR_POSITION_TRANSITION_ID".toLowerCase(), a -> a.persistent(Codec.FLOAT));
+    public static final DataComponentType<Float> MIRROR_POSITION_TRANSITION = register("mirror_position_transition_id", a -> a.persistent(Codec.FLOAT));
 
     public static void registerDataComponents() {
 

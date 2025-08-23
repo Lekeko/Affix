@@ -1,6 +1,6 @@
 {
   "vertex": "veil:blit_screen",
-  "fragment": "affix:fire_ball",
+  "fragment": "affix:style_cubes",
   "textures": {
     "NoiseTexture": {
       "type": "location",

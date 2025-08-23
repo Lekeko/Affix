@@ -15,10 +15,11 @@ public class GlyphMarking {
         int yMid = guiGraphics.guiHeight() / 2 - 4;
 
         LocalPlayer player = Minecraft.getInstance().player;
-        Color color = AffixClient.getClientColor();
+        Color color = AffixShaderHandlers.getClientColor();
 
         int alphaFactor = (int)(mirrorOffset * 100 * 2);
-        if (alphaFactor >= 5 && alphaFactor <= 255 && player != null) {
+        if (alphaFactor >= 5 && player != null) {
+            alphaFactor = Math.min(alphaFactor, 255);
             color = new Color(color.getRed(), color.getGreen(), color.getBlue(), alphaFactor);
             guiGraphics.drawCenteredString(Minecraft.getInstance().font, AffixClient.xAnom != 1111111111 ? String.format("%d", AffixClient.xAnom) : "✌☠⚐\uD83D\uDCA3✌☹✡", xMid - alphaFactor / 5, yMid  - alphaFactor / 10, color.getRGB());
             guiGraphics.drawCenteredString(Minecraft.getInstance().font, AffixClient.zAnom != 1111111111 ? String.format("%d", AffixClient.zAnom) : "\uD83D\uDC4E☜❄☜\uD83D\uDC4D❄☜\uD83D\uDC4E", xMid + alphaFactor / 5, yMid  - alphaFactor / 10, color.getRGB());

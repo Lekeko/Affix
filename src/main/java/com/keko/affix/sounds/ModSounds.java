@@ -17,6 +17,10 @@ public class ModSounds {
     public static final SoundEvent DRAGON_SUMMON =register("dragon_summon") ;
     public static final SoundEvent DRAGON_BLAST =register("dragon_blast") ;
     public static final SoundEvent SPEAR =register("spear") ;
+    public static final SoundEvent ROCKET_LAUNCH =register("rocket_launch") ;
+    public static final SoundEvent ROCKET_EXPLODE =register("rocket_explode") ;
+    public static final SoundEvent PUNCH =register("punch") ;
+    public static final SoundEvent JAM_DASH =register("jam_dash") ;
 
     private static SoundEvent register(String path) {
         ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(Affix.MOD_ID, path);

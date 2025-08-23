@@ -31,7 +31,7 @@ public class FabricPocketRenderer extends GeoEntityRenderer<FabricPocket> {
         poseStack.mulPose(Axis.XN.rotationDegrees(rotation));
         poseStack.mulPose(Axis.YN.rotationDegrees(-rotation));
         poseStack.mulPose(Axis.ZN.rotationDegrees(rotation));
-        float size = Easing.EASE_IN_EXPO.ease(AffixClient.mirrorOffset) / 4f;
+        float size = AffixClient.mirrorOffset;
 
         poseStack.scale(size,size,size);
 
@@ -41,7 +41,7 @@ public class FabricPocketRenderer extends GeoEntityRenderer<FabricPocket> {
 
     @Override
     public boolean shouldRender(FabricPocket entity, Frustum frustum, double d, double e, double f) {
-        return AffixClient.renderMirror;
+        return AffixClient.mirrorOffset>0;
     }
 
 }

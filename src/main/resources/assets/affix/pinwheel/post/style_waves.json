@@ -2,7 +2,7 @@
   "stages": [
     {
       "type": "veil:blit",
-      "shader": "affix:fire_ball",
+      "shader": "affix:style_waves",
       "in": "minecraft:main"
     }
   ]

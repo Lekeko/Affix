@@ -234,7 +234,7 @@ void main() {
 
 
 
-    vec3 size = vec3(0.5, 0.5, 0.5) + sin(speed) * 2 * atan(mirrorOffset);
+    vec3 size = vec3(sin(mirrorOffset) * 1.4f);
     float rayHitSmall = sph4Intersect(boxPosition, rayDir, size.x );
     float rayHitLarge = sph4Intersect(boxPosition, rayDir,  size.x * 1.22);
 
@@ -243,11 +243,10 @@ void main() {
 
 
     if (hitSmall) {
-        fragColor = vec4((vec3(1-depthSample) * 62)
+        fragColor = vec4((vec3(1-depthSample) * 612) / 4
         * shaderAccent / 255, 1.0);
     } else if (hitLarge) {
-        fragColor = vec4(1-((vec3(1-depthSample) * 62)
-        * shaderAccent / 255), 1.0);
+        fragColor = vec4(1-((vec3(1-depthSample) * 62)), 1.0);
     }
     else {
         fragColor = vec4(vec3(baseColor * (1 - mirrorOffset * 1.06)), 1.0);

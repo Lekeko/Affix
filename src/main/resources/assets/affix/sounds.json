@@ -48,6 +48,26 @@
     "sounds": [
       "affix:spear"
     ]
+  },
+  "rocket_launch": {
+    "sounds": [
+      "affix:rocket_launch"
+    ]
+  },
+  "rocket_explode": {
+    "sounds": [
+      "affix:rocket_explode"
+    ]
+  },
+  "punch": {
+    "sounds": [
+      "affix:punch"
+    ]
+  },
+  "jam_dash": {
+    "sounds": [
+      "affix:jam_dash"
+    ]
   }
 }
 

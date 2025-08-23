@@ -2,8 +2,9 @@
   "affix.midnightconfig.title": "Affix Configs",
   "death.attack.flamed": "%1$s got their soul kindled!",
   "death.attack.scorched": "%1$s got their skin scorched!",
-  "effect.com.keko.affix.accelerated": "Accelerated",
-  "effect.com.keko.affix.unstable": "behind you",
+  "effect.affix.accelerated": "Accelerated",
+  "effect.affix.otherwordly": "It's jamming time!",
+  "effect.affix.unstable": "behind you",
   "entity.affix.fabric_pocket": "|Fabric Pocket|",
   "item.affix.accelerator": "Accelerator",
   "item.affix.death_simulacrum": "Death Simulacrum",
@@ -14,5 +15,8 @@
   "item.affix.quasar_caller": "Quasar Caller",
   "item.affix.refractor": "Refractor",
   "key.affix.affixmod": "Affix Controls",
-  "key.affix.dodge": "Dodge/Dash"
+  "key.affix.dodge": "Dodge/Dash",
+  "key.affix.jammingtime": "Open jamming screen",
+  "key.affix.rocketLaunchKey": "Rocket launch",
+  "key.affix.rocketScanKey": "Rocket scan"
 }
